@@ -9,6 +9,9 @@
     "javascript",
     "wysiwyg"
   ],
+  "scripts": {
+    "build": "gulp"
+  },
   "homepage": "https://github.com/sparksuite/simplemde-markdown-editor",
   "main": "./src/js/simplemde.js",
   "license": "MIT",
@@ -29,7 +32,7 @@
     "browserify": "*",
     "debug": "*",
     "eslint": "*",
-    "gulp": "*",
+    "gulp": "",
     "gulp-concat": "*",
     "gulp-debug": "*",
     "gulp-eslint": "*",
