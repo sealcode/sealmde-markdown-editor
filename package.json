@@ -32,7 +32,7 @@
     "browserify": "*",
     "debug": "*",
     "eslint": "*",
-    "gulp": "",
+    "gulp": "*",
     "gulp-concat": "*",
     "gulp-debug": "*",
     "gulp-eslint": "*",
