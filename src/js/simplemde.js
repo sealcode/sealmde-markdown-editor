@@ -1663,7 +1663,9 @@ SimpleMDE.prototype.render = function (el) {
         : !isMobile(),
   });
 
-  this.codemirror.preprocessPaste = () => "hehehe";
+  this.codemirror.preprocessPaste = function () {
+    return "hehe";
+  };
 
   this.codemirror.getScrollerElement().style.minHeight = options.minHeight;
 
