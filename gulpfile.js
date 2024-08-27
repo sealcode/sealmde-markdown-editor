@@ -22,18 +22,11 @@ var banner = [
   "",
 ].join("\n");
 
-gulp.task("prettify-css", [], function () {
-  return gulp
-    .src("./src/css/simplemde.css")
-    .pipe(prettify({ css: { indentChar: "\t", indentSize: 1 } }))
-    .pipe(gulp.dest("./src/css"));
-});
-
 function taskBrowserify(opts) {
   return browserify("./src/js/simplemde.js", opts).bundle();
 }
 
-gulp.task("browserify:debug", ["lint"], function () {
+gulp.task("browserify:debug", [], function () {
   return taskBrowserify({ debug: true, standalone: "SimpleMDE" })
     .pipe(source("simplemde.debug.js"))
     .pipe(buffer())
@@ -41,7 +34,7 @@ gulp.task("browserify:debug", ["lint"], function () {
     .pipe(gulp.dest("./debug/"));
 });
 
-gulp.task("browserify", ["lint"], function () {
+gulp.task("browserify", [], function () {
   return taskBrowserify({ standalone: "SimpleMDE" })
     .pipe(source("simplemde.js"))
     .pipe(buffer())
@@ -49,7 +42,7 @@ gulp.task("browserify", ["lint"], function () {
     .pipe(gulp.dest("./debug/"));
 });
 
-gulp.task("scripts", ["browserify:debug", "browserify", "lint"], function () {
+gulp.task("scripts", ["browserify:debug", "browserify"], function () {
   var js_files = ["./debug/simplemde.js"];
 
   return gulp
@@ -61,7 +54,7 @@ gulp.task("scripts", ["browserify:debug", "browserify", "lint"], function () {
     .pipe(gulp.dest("./dist/"));
 });
 
-gulp.task("styles", ["prettify-css"], function () {
+gulp.task("styles", [], function () {
   var css_files = [
     "./node_modules/@sealcode/sealcodemirror/lib/codemirror.css",
     "./src/css/*.css",
