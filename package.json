@@ -1,6 +1,6 @@
 {
   "name": "@sealcode/simplemde",
-  "version": "1.12.0-beta10",
+  "version": "1.12.0-beta11",
   "description": "A simple, beautiful, and embeddable JavaScript Markdown editor. Forked by Sealcode for performance and paste-from-html.",
   "keywords": [
     "embeddable",
