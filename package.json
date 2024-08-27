@@ -1,6 +1,6 @@
 {
   "name": "@sealcode/simplemde",
-  "version": "1.12.0-beta4",
+  "version": "1.12.0-beta5",
   "description": "A simple, beautiful, and embeddable JavaScript Markdown editor. Forked by Sealcode for performance and paste-from-html.",
   "keywords": [
     "embeddable",
@@ -24,7 +24,7 @@
     "url": "https://github.com/sparksuite/simplemde-markdown-editor/issues"
   },
   "dependencies": {
-    "@sealcode/sealcodemirror": "^5.70.0-beta2",
+    "@sealcode/sealcodemirror": "^5.70.0-beta3",
     "codemirror-spell-checker": "*",
     "marked": "*"
   },
