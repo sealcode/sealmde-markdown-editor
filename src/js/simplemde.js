@@ -10,6 +10,8 @@ require("@sealcode/sealcodemirror/addon/display/placeholder.js");
 require("@sealcode/sealcodemirror/addon/selection/mark-selection.js");
 require("@sealcode/sealcodemirror/mode/gfm/gfm.js");
 require("@sealcode/sealcodemirror/mode/xml/xml.js");
+
+var TurndownService = require("turndown");
 var CodeMirrorSpellChecker = require("codemirror-spell-checker");
 var marked = require("marked");
 
@@ -1663,8 +1665,21 @@ SimpleMDE.prototype.render = function (el) {
         : !isMobile(),
   });
 
-  this.codemirror.preprocessPaste = function () {
-    return "hehe";
+  this.codemirror.preprocessPaste = function (clipboardData) {
+    if (clipboardData.types.includes("text/html")) {
+      const html = clipboardData
+        .getData("text/html")
+        .replaceAll("\n", " ")
+        // to get rid of some of the style metadata from libreoffice
+        .replace(/^<!doctype.*<body[^>]*>/i, "");
+      const turndownService = new TurndownService({
+        headingStyle: "atx",
+        preformattedCode: true,
+      });
+      return turndownService.turndown(html);
+    } else {
+      return clipboardData.getData("Text");
+    }
   };
 
   this.codemirror.getScrollerElement().style.minHeight = options.minHeight;
