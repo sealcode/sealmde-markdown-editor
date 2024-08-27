@@ -1,6 +1,6 @@
 {
-  "name": "simplemde",
-  "version": "1.11.2",
+  "name": "@sealcode/simplemde",
+  "version": "1.12.0-beta",
   "description": "A simple, beautiful, and embeddable JavaScript Markdown editor. Forked by Sealcode for performance and paste-from-html.",
   "keywords": [
     "embeddable",
@@ -12,7 +12,7 @@
   "scripts": {
     "build": "gulp"
   },
-  "homepage": "https://github.com/sparksuite/simplemde-markdown-editor",
+  "homepage": "https://github.com/sealcode/sealmde-markdown-editor",
   "main": "./src/js/simplemde.js",
   "license": "MIT",
   "company": "Sparksuite, Inc.",
