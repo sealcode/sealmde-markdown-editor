@@ -8,7 +8,6 @@ var gulp = require("gulp"),
   buffer = require("vinyl-buffer"),
   pkg = require("./package.json"),
   debug = require("gulp-debug"),
-  prettify = require("gulp-jsbeautifier"),
   browserify = require("browserify"),
   source = require("vinyl-source-stream"),
   rename = require("gulp-rename");
@@ -23,32 +22,11 @@ var banner = [
   "",
 ].join("\n");
 
-gulp.task("prettify-js", [], function () {
-  return gulp
-    .src("./src/js/simplemde.js")
-    .pipe(
-      prettify({
-        js: {
-          brace_style: "collapse",
-          indent_char: "\t",
-          indent_size: 1,
-          max_preserve_newlines: 3,
-          space_before_conditional: false,
-        },
-      })
-    )
-    .pipe(gulp.dest("./src/js"));
-});
-
 gulp.task("prettify-css", [], function () {
   return gulp
     .src("./src/css/simplemde.css")
     .pipe(prettify({ css: { indentChar: "\t", indentSize: 1 } }))
     .pipe(gulp.dest("./src/css"));
-});
-
-gulp.task("lint", ["prettify-js"], function () {
-  gulp.src("./src/js/**/*.js").pipe(debug());
 });
 
 function taskBrowserify(opts) {
