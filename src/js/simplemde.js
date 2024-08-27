@@ -1526,7 +1526,8 @@ function SimpleMDE(options) {
     options.initialValue &&
     (!this.options.autosave || this.options.autosave.foundSavedValue !== true)
   ) {
-    this.value(options.initialValue);
+    // running this in the next tick, to let the browser render/scroll
+    setTimeout(() => this.value(options.initialValue), 1);
   }
 }
 
