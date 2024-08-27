@@ -12,6 +12,7 @@ require("@sealcode/sealcodemirror/mode/gfm/gfm.js");
 require("@sealcode/sealcodemirror/mode/xml/xml.js");
 
 var TurndownService = require("turndown");
+var turndownPluginGfm = require("turndown-plugin-gfm");
 var CodeMirrorSpellChecker = require("codemirror-spell-checker");
 var marked = require("marked");
 
@@ -1672,10 +1673,14 @@ SimpleMDE.prototype.render = function (el) {
         .replaceAll("\n", " ")
         // to get rid of some of the style metadata from libreoffice
         .replace(/^<!doctype.*<body[^>]*>/i, "");
+
+      var gfm = turndownPluginGfm.gfm;
+
       const turndownService = new TurndownService({
         headingStyle: "atx",
         preformattedCode: true,
       });
+      turndownService.use(gfm);
       return turndownService.turndown(html);
     } else {
       return clipboardData.getData("Text");
