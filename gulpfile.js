@@ -2,7 +2,6 @@
 
 var gulp = require("gulp"),
   minifycss = require("gulp-clean-css"),
-  uglify = require("gulp-uglify"),
   concat = require("gulp-concat"),
   header = require("gulp-header"),
   buffer = require("vinyl-buffer"),
@@ -48,7 +47,6 @@ gulp.task("scripts", ["browserify:debug", "browserify"], function () {
   return gulp
     .src(js_files)
     .pipe(concat("simplemde.min.js"))
-    .pipe(uglify())
     .pipe(buffer())
     .pipe(header(banner, { pkg: pkg }))
     .pipe(gulp.dest("./dist/"));

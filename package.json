@@ -24,7 +24,7 @@
     "url": "https://github.com/sparksuite/simplemde-markdown-editor/issues"
   },
   "dependencies": {
-    "@sealcode/sealcodemirror": "^5.70.0-beta3",
+    "@sealcode/sealcodemirror": "^5.70.0-beta4",
     "codemirror-spell-checker": "*",
     "marked": "*",
     "turndown": "^7.2.0",
